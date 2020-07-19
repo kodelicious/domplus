@@ -1,0 +1,25 @@
+{
+  "name": "domplus",
+  "version": "0.0.1",
+  "description": "We added a data driven layer to the DOM.",
+  "main": "assets/js/dp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodelicious/domplus.git"
+  },
+  "keywords": [
+    "HTML",
+    "DOM",
+    "JavaScript",
+    "Data driven"
+  ],
+  "author": "kodelicious",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kodelicious/domplus/issues"
+  },
+  "homepage": "https://github.com/kodelicious/domplus#readme"
+}

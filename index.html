@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DOM+</title>
+<meta charset="utf-8">
+<script src="assets/js/dp.js"></script>
+<script src="assets/js/product.js"></script>
+</head>
+<body>
+    <h1>DOM+</h1>
+    <ul dp-collection="products" data-dp-collection="products">
+        <template>
+            <li>
+                <label dp-property="name"></label>
+                <span dp-property="age"></span>
+                <a href="#" onclick="dp.model('products.${reference}').delete(); return false;">Remove</a>
+            </li>
+        </template>
+        <li dp-model="1" dp-watcher="product">
+            <label dp-property="name">iPad</label>
+            <span dp-property="amount">1</span>
+            <span>€ <span dp-property="price">99,95</span></span>
+            <span>€ <span dp-property="total">99,95</span></span>
+            <a href="#" onclick="dp.model('products.1').delete(); return false;">Remove</a>
+        </li>
+        <li dp-model="2" dp-watcher="product">
+            <label dp-property="name">iMac</label>
+            <input type="number" value="2" dp-property="amount" min="1" max="1000" onchange="dp.model('products.2').update({amount: this.value})">
+            <span>€ <span dp-property="price">1.999,95</span></span>
+            <span>€ <span dp-property="total">12.50</span></span>
+            <a href="#" onclick="dp.model('products.2').delete(); return false;">Remove</a>
+        </li>
+    </ul>
+    <button onclick="dp.collection('products').insert('test', {name:'Mila', age: 9})">Add product</button>
+    <button onclick="dp.get('get.php', {callback: function (response) { dp.model('products.1').update(response); }})">Make request</button>
+    <br>
+    <hr>
+    <br>
+    <input placeholder="Update name of My First Project" onkeyup="dp.model('projects.1').update('name', this.value)">
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: left;">Name</th>
+            </tr>
+        </thead>
+        <tbody dp-collection="projects">
+            <tr dp-model="1">
+                <td dp-property="name">My First Project</td>
+                <td dp-property="foo">Test</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div dp-collection="projects">
+        <div dp-model="1">
+            <b dp-property="name">My First Project</b> | 
+            <b dp-property="bar">Jada</b>
+        </div>
+    </div>
+    <dl dp-model="single-model">
+        <dt dp-property="title">Coffee</dt>
+        <dd dp-property="description">I like my coffee hot!</dd>
+    </dl>
+</body>
+</html>
